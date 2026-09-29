@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "aurapops",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "auradigitalworks.com/aurapops*",
+      "zone_name": "auradigitalworks.com"
+    },
+    {
+      "pattern": "auradigitalworks.com/pops/*",
+      "zone_name": "auradigitalworks.com"
+    },
+    {
+      "pattern": "auradigitalworks.com/api/aurapops/*",
+      "zone_name": "auradigitalworks.com"
+    }
+  ],
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "run_worker_first": ["/aurapops", "/aurapops/*", "/pops/*", "/api/aurapops/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "auradigital-db",
+      "database_id": "6d89053c-4979-4e54-9976-bbfb884cb5ca"
+    }
+  ]
+}
